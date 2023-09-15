@@ -17,6 +17,7 @@ class GroupPage {
       "btn-add-qualification"
     );
     this.btnSaveGroup = document.getElementById("btn-save-group");
+    this.btnGitHub = document.getElementById("btn-github");
 
     // Lists
     this.listQualifications = document.getElementById("qualifications-list");
@@ -121,6 +122,13 @@ class GroupPage {
 
     this.btnSaveGroup.addEventListener("click", () => {
       this.saveGroupToStorage();
+    });
+
+    this.btnGitHub.addEventListener("click", () => {
+      window.open(
+        "https://github.com/Koenigseder/ihk-report-booklet-chrome-extension",
+        "_blank"
+      );
     });
 
     // Inputs
