@@ -79,6 +79,17 @@ button:disabled {
   margin-bottom: 2em;
 }
 
+#btn-github {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  transition: scale 300ms ease-in-out;
+}
+
+#btn-github:hover {
+  scale: 1.1;
+}
+
 .modal-container {
   width: 100%;
   height: 100%;
