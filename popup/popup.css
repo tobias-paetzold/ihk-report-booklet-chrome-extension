@@ -1,0 +1,29 @@
+button {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: inherit;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  border-radius: 0.8em;
+  border: none;
+  color: ghostwhite;
+  overflow: hidden;
+  padding: 1em;
+  transition: scale ease-in-out 500ms;
+  cursor: pointer;
+}
+
+button:hover {
+  scale: 1.05;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  width: 280px;
+  color: #314d3e;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/groups/groups.css" rel="stylesheet" type="text/css" />
+    <title>Gruppen bearbeiten</title>
+  </head>
+  <body>
+    <div id="main-grid">
+      <h1>IHK Berichtsheft Qualifikationsgruppen</h1>
+      <button id="btn-new-group">Neue Gruppe erstellen</button>
+      <div id="group-list"></div>
+    </div>
+
+    <div class="modal-container">
+      <div class="modal">
+        <div class="modal-header">
+          <h1>Neue Qualifikationsgruppe erstellen</h1>
+          <div id="btn-modal-close" class="modal-close">&times;</div>
+        </div>
+        <div class="modal-content">
+          <p>Name der Qualifikationsgruppe:</p>
+          <input id="qualification-group-name" />
+          <hr />
+          <p>Füge eine neue Qualifikation hinzu:</p>
+          <div class="add-qualification-layout">
+            <input id="qualification-name" />
+            <input
+              id="btn-add-qualification"
+              title="Qualifikation zur Gruppe hinzufügen"
+              type="image"
+              src="/assets/add_circle.svg"
+            />
+          </div>
+          <p>Diese Gruppe enthält folgende Qualifikationen:</p>
+          <ul id="qualifications-list"></ul>
+        </div>
+        <button id="btn-save-group" disabled>Speichern</button>
+      </div>
+    </div>
+
+    <script type="module" src="/groups/groups.js"></script>
+  </body>
+</html>

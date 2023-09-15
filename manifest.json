@@ -1,0 +1,39 @@
+{
+  "name": "IHK Berichtsheft Qualifikationsgruppen",
+  "version": "1.0.0",
+  "description": "IHK Berichtsheft Qualifikationsgruppen",
+  "icons": {
+    "48": "/assets/groups.png"
+  },
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.ihk.de/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.ihk.de/*"],
+      "js": ["/content/content.js"],
+      "css": ["/content/content.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "/assets/groups.png",
+        "/assets/add_circle.svg",
+        "/assets/delete.svg",
+        "/assets/edit.svg"
+      ],
+      "matches": ["https://*.ihk.de/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "48": "/assets/groups.png"
+    },
+    "default_title": "IHK Berichtsheft Qualifikationsgruppen",
+    "default_popup": "/popup/popup.html"
+  },
+  "manifest_version": 3
+}

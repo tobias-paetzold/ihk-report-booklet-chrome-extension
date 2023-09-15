@@ -1,0 +1,186 @@
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#642ab5, #ab7ae0);
+  border-radius: 1rem;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(#ee0979, #ff6a00);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #161623;
+  color: white;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-size: large;
+}
+
+button {
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  font-size: 18px;
+  font-weight: 500;
+  font-family: inherit;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  border-radius: 0.8em;
+  border: none;
+  color: ghostwhite;
+  overflow: hidden;
+  padding: 1em;
+  transition: scale ease-in-out 500ms;
+  cursor: pointer;
+}
+
+button:hover {
+  scale: 1.05;
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+#main-grid {
+  width: 100%;
+  display: grid;
+  gap: 2em;
+  justify-content: center;
+}
+
+#group-list {
+  display: grid;
+  gap: 2em;
+  align-items: center;
+}
+
+#group-list div {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto auto;
+  background-color: #2e2e39;
+  padding: 1em;
+  border-radius: 0.8em;
+}
+
+#group-list div:last-child {
+  margin-bottom: 2em;
+}
+
+.modal-container {
+  width: 100%;
+  height: 100%;
+  display: none; /* visible: flex */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container .modal {
+  height: 80%;
+  width: 75%;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  justify-content: center;
+  align-items: start;
+  background-color: #2e2e39;
+  backdrop-filter: blur(10px);
+  border-radius: 0.8em;
+}
+
+.modal .modal-header {
+  display: grid;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  grid-auto-flow: column;
+  grid-template-columns: 90% auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal .modal-header .modal-close {
+  position: absolute;
+  right: 0.5em;
+  top: 0;
+  font-size: 3em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.modal .modal-content {
+  margin-top: 4em;
+  width: 100%;
+  height: calc(100% - 8.8em);
+  display: grid;
+  grid-auto-rows: min-content;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.modal input {
+  color: white;
+  font-size: 1.3em;
+  padding: 0.2em;
+  background: none;
+  border-radius: 0.5em;
+}
+
+.modal input:focus {
+  outline: none;
+}
+
+.modal hr {
+  width: 100%;
+  margin-top: 2em;
+}
+
+.modal .add-qualification-layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.modal #qualifications-list {
+  min-height: 100%;
+}
+
+.modal #qualifications-list li > div {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-template-columns: 1fr auto;
+}
+
+.modal button {
+  position: fixed;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  bottom: 0.8em;
+  width: 90%;
+}
+
+.modal button:hover {
+  scale: 1.02;
+}
