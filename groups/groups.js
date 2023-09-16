@@ -215,7 +215,7 @@ class GroupPage {
     let newGroups;
 
     const newGroup = {
-      id: currentGroups[currentGroups.length - 1].id + 1,
+      id: currentGroups[currentGroups.length - 1] ? currentGroups[currentGroups.length - 1].id + 1 : 0,
       title: this.inputQualificationGroupName.value.trim(),
       qualifications: this.modalQualifications,
     };
