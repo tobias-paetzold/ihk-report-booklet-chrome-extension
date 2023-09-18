@@ -5,7 +5,7 @@
   let optionCheckBoxes = [];
   let qualifications = [];
 
-  chrome.runtime.onMessage.addListener((obj, sender, response) => {
+  chrome.runtime.onMessage.addListener((obj) => {
     const { loaded } = obj;
 
     if (!loaded) {
@@ -41,7 +41,7 @@
       });
     });
 
-    const t = document.getElementsByClassName("cdk-overlay-container")[0];
+    const t = document.body;
     const config = {
       childList: true,
       subtree: true,
@@ -72,14 +72,20 @@
 
     optionCheckBoxes = [];
 
-    for (let i = 0; i < groups.length; i++) {
-      optionCheckBoxes.push(appendGroupOption(groupsChild, groups[i]));
+    if (groups.length <= 0) {
+      const noGroupsHint = document.createElement("p");
+      noGroupsHint.style.fontWeight = "bold";
+      noGroupsHint.textContent = `Bisher keine Gruppen hinzugefügt. Durch Klick auf die Extension kannst du neue hinzufügen.`;
+      groupsChild.appendChild(noGroupsHint);
+    } else {
+      for (let i = 0; i < groups.length; i++) {
+        optionCheckBoxes.push(appendGroupOption(groupsChild, groups[i]));
+      }
     }
 
     wrapper.appendChild(groupsChild);
 
     const btnsDialog = document.querySelectorAll(".mat-dialog-actions button");
-    console;
     btnsDialog.forEach((btn) => {
       btn.addEventListener("click", () => {
         groupsChild.style.animation = "fadeOut 300ms linear";
