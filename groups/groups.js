@@ -36,6 +36,7 @@ class GroupPage {
       this.loadGroupList();
       this.addListeners();
     });
+    this.currentRotation = 0;
   }
 
   loadGroupList() {
@@ -95,7 +96,6 @@ class GroupPage {
       });
     }
   }
-
   addListeners() {
     // Buttons
     this.btnNewGroup.addEventListener("click", () => {
@@ -111,10 +111,12 @@ class GroupPage {
     });
 
     this.btnCloseModal.addEventListener("click", () => {
-      this.modalContainer.style.display = "none";
+
     });
 
     this.btnAddQualificationToGroup.addEventListener("click", () => {
+      this.currentRotation += 180;
+      this.btnAddQualificationToGroup.style.transform = `rotate(${this.currentRotation}deg)`;
       this.addQualificationToList();
       this.inputAddQualificationToGroup.value = null;
       this.checkIfGroupCanBeSaved();
@@ -130,6 +132,10 @@ class GroupPage {
         "_blank"
       );
     });
+
+
+
+      
 
     // Inputs
     this.inputQualificationGroupName.addEventListener("input", () => {
@@ -164,19 +170,36 @@ class GroupPage {
     for (let i = 0; i < this.modalQualifications.length; i++) {
       const qualificationListItem = document.createElement("li");
       qualificationListItem.innerHTML = `
-        <div class="qualification-list-item">
-          <span>${this.modalQualifications[i]}</span>
-          <input
-            id="btn-del-qualification-${i}"
-            class="btn-del-qualification-from-list"
-            title="Qualifikation aus der Liste löschen"
-            type="image"
-            src="/assets/delete.svg"
-          />
-        </div>
-        `;
+<div class="qualification-list-item">
+<span>${this.modalQualifications[i]}</span>
+<input
+id="btn-del-qualification-${i}"
+class="btn-del-qualification-from-list"
+title="Qualifikation aus der Liste löschen"
+type="image"
+src="/assets/delete.svg"
+/>
+</div>
+`;
 
       this.listQualifications.appendChild(qualificationListItem);
+      let deleteButtons = document.getElementsByClassName("btn-del-qualification-from-list");
+      () => {
+        console.log("hey");
+        console.log(deleteButtons);
+        deleteButtons.forEach(element => {
+          element.addEventListener('mouseenter', () => {
+            // Change the image source on hover
+            element.src = "/assets/delete-hover.svg";
+            console.log("enter");
+          });
+          element.addEventListener('mouseleave', () => {
+            // Restore the initial image source when the mouse leaves
+            element.src = "/assets/delete.svg";
+            console.log("leave");
+          });
+        });
+      };
     }
 
     const btnsRemove = document.getElementsByClassName(
